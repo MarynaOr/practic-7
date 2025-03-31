@@ -9,6 +9,8 @@ body {
   background-attachment: fixed;
   position: relative; */
   background-color: #c7cafa;
+  /* max-width: 960px; */
+  overflow-x: hidden;
 }
 ol,
 ul {
@@ -30,16 +32,12 @@ a {
   z-index: -1;
   position: absolute;
   width: 100%;
-  top: -50%;
+  top: -20%;
   height: 300px;
   overflow: hidden;
-  /* position: relative; */
- /* position: absolute;
- top: 0;
- left: 50%;
-transform: translate(-50%, -20%); 
- 
-  object-fit: cover; */
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
 
