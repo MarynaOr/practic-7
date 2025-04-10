@@ -2,7 +2,7 @@
 // import axios from "axios";
 
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTasks } from "./todosOps";
+import { fetchdata } from "./todosOps";
 // axios.defaults.baseURL ='https://67ef9d9b2a80b06b8894f93c.mockapi.io/TodoList'
 
 // export const fetchTasks = createAsyncThunk('tasks', async()=>{
@@ -15,21 +15,21 @@ const initialState = {
   isError: null,
 };
 
-const slice = createSlice({
+export const slice = createSlice({
   name: "tasks",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchTasks.pending, (state) => {
+      .addCase(fetchdata.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchTasks.fulfilled, (state, action) => {
+      .addCase(fetchdata.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = null;
         state.items = action.payload;
       })
-      .addCase(fetchTasks.rejected, (state,action)=>{
+      .addCase(fetchdata.rejected, (state,action)=>{
         state.isLoading=false
         state.isError = action.payload
       })

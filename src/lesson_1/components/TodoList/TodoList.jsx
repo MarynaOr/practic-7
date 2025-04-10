@@ -1,9 +1,12 @@
+import List from "./List";
+
 const TodoList = () => {
+ 
   return (
     <>
-        <h1>world</h1>
+        <List/>
     </>
   );
 };
 
-export default TodoList;
+export default TodoList; 
