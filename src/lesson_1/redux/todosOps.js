@@ -1,11 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://67ef9d9b2a80b06b8894f93c.mockapi.io/TodoList'
-
+axios.defaults.baseURL = 'https://67ef9d9b2a80b06b8894f93c.mockapi.io';
 export const fetchdata= createAsyncThunk('tasks/fetchTasks', async(_, thunkAPI)=>{
     try{
-        const response = await axios.get('/tasks')
+        const response = await axios.get(`/TodoList`)
     return response.data
     } catch(e){
         return thunkAPI.rejectWithValue(e.message)
@@ -13,7 +12,15 @@ export const fetchdata= createAsyncThunk('tasks/fetchTasks', async(_, thunkAPI)=
     
 })
 
+export const deleteData = createAsyncThunk('tasks/deleteData', async(id,thunkAPI)=>{
+   try{
+    await axios.delete(`/TodoList/${id}`)
+    return id
+   } catch(e){
+    return thunkAPI.rejectWithValue(e.message)
 
+   }
+})
 
 // export const fetchdata = createAsyncThunk('tasks/fetchTasks', async() =>{
 //     try{
