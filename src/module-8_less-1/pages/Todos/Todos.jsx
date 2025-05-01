@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux";
+import TodoList from "../TodoList/TodoList";
+
 const Todos = () => {
   return (
     <>
-      <p>Todos</p>
+    <TodoList/>
     </>
   );
 };
