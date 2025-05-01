@@ -1,0 +1,21 @@
+
+.header{
+      background-color: #5f5f5fad;
+
+}
+.nav {
+  display: flex;
+  gap: 12px;
+}
+
+.link {
+  color: antiquewhite;
+  font-size: 22px;
+}
+
+.active{
+    color: sienna;
+    font-size: 28px;
+}
+
+

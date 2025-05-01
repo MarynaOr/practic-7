@@ -1,7 +1,7 @@
 const Todos = () => {
   return (
     <>
-      
+      <p>Todos</p>
     </>
   );
 };
