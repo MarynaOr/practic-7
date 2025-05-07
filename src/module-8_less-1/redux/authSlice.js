@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAuthThunk, loginThunk } from "./authOperations";
+import { fetchAuthThunk, loginThunk, logoutThunk } from "./authOperations";
 
 const initialState = {
     user: {
@@ -28,6 +28,11 @@ extraReducers: builder => {
         state.token = action.payload.token
         state.isLogedIn = true
     })
+    .addCase(logoutThunk.fulfilled, ()=>initialState)
+    .addCase(logoutThunk.rejected, (state, action) => {
+        // опційно: можна показати повідомлення про помилку
+        console.error('Logout failed:', action.payload);
+      });
 }
 })
 
