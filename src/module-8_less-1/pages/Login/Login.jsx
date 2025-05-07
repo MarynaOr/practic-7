@@ -2,6 +2,7 @@ import { Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/authOperations";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate()
@@ -17,10 +18,10 @@ const Login = () => {
     console.log(values);
     dispatch(loginThunk(values))
       .unwrap()
-      .then(() => {navigate("/todos")})
-      .catch((error) => {
-        console.log("Login error:", error);
-      });
+      .then(res => {
+        toast.success(`hello ${res.user.email}`)
+        navigate("/todos", {replace:true})})
+      .catch(()=>toast.error("This didn't work."));
     options.resetForm();
   };
 
